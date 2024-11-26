@@ -1,6 +1,4 @@
 local utils = require('utils')
-
-
 local kopts = utils.keymap_opts_gen("Global")
 
 
