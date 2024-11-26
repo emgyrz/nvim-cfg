@@ -18,6 +18,9 @@ vim.keymap.set('n', ']b', '<Cmd>bnext<CR>', kopts('switch to the next buffer'))
 vim.keymap.set('n', '[b', '<Cmd>bprevious<CR>', kopts('switch to the prev buffer'))
 
 
+vim.keymap.set('n', '<F1>', vim.diagnostic.open_float, kopts('switch to the prev buffer'))
+
+
 local function close_buff()
 
   local i = utils.get_bufs_count()
@@ -25,9 +28,11 @@ local function close_buff()
   if i == 0 then
     return
   elseif i == 1 then
-    vim.cmd "w | q"
+    -- vim.cmd "w | q"
+    vim.cmd "q"
   else
-    vim.cmd "w | bp | bd#"
+    -- vim.cmd "w | bp | bd#"
+    vim.cmd "bp | bd#"
   end
 
 end

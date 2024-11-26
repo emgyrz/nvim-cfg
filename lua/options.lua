@@ -32,8 +32,8 @@ opt.signcolumn = "yes"
 
 
 -- минимальное количество линий до края окна
-opt.scrolloff = 5 -- vertical
-opt.sidescrolloff = 5 -- horizontal
+opt.scrolloff = 3 -- vertical
+opt.sidescrolloff = 3 -- horizontal
 
 -- отключает swapfile, нужный для восстановления после сбоя
 opt.swapfile = false

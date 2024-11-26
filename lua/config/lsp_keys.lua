@@ -1,44 +1,31 @@
+local utils = require('utils')
+local kopts = utils.keymap_opts_gen("LSP")
 
 return function(bufnr)
 
-  local bufmap = function(mode, lhs, rhs)
-    local opts = {buffer = bufnr}
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
+  vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', kopts("Displays hover information about the symbol under the cursor", bufnr))
 
-  -- Displays hover information about the symbol under the cursor
-  bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+  vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', kopts("Jump to the definition", bufnr))
 
-  -- Jump to the definition
-  bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+  vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', kopts("Jump to declaration", bufnr))
 
-  -- Jump to declaration
-  bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+  vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', kopts("Lists all the implementations for the symbol under the cursor", bufnr))
 
-  -- Lists all the implementations for the symbol under the cursor
-  bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+  vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', kopts("Jumps to the definition of the type symbol", bufnr))
 
-  -- Jumps to the definition of the type symbol
-  bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+  vim.keymap.set('n', 'gr', '<cmd>:Telescope lsp_references<cr>', kopts("Lists all the references ", bufnr))
 
-  -- Lists all the references 
-  bufmap('n', 'gr', '<cmd>:Telescope lsp_references<cr>')
+  vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', kopts("Displays a function's signature information", bufnr))
 
-  -- Displays a function's signature information
-  bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+  vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', kopts("Renames all references to the symbol under the cursor", bufnr))
 
-  -- Renames all references to the symbol under the cursor
-  bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+  vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', kopts("Selects a code action available at the current cursor position", bufnr))
 
-  -- Selects a code action available at the current cursor position
-  bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+  vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', kopts("Show diagnostics in a floating window", bufnr))
 
-  -- Show diagnostics in a floating window
-  bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+  vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', kopts("Move to the previous diagnostic", bufnr))
 
-  -- Move to the previous diagnostic
-  bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+  vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', kopts("Move to the next diagnostic", bufnr))
 
-  -- Move to the next diagnostic
-  bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 end
+

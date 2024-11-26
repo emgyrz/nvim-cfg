@@ -1,23 +1,23 @@
 vim.g.rustaceanvim = {
-  -- Plugin configuration
+
   tools = {
   },
-  -- LSP configuration
+
   server = {
-    on_attach = function(client, bufnr)
-      -- you can also put keymaps in here
-      local bufnr = vim.api.nvim_get_current_buf()
+    on_attach = function(_client, bufnr)
+
+      require('../config/lsp_keys')(bufnr)
+
       vim.keymap.set(
-        "n", 
-        "<leader>la", 
+        "n",
+        "<F4>",
         function()
           vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
-          -- or vim.lsp.buf.codeAction() if you don't want grouping.
         end,
         { silent = false, buffer = bufnr }
       )
       vim.keymap.set(
-        "n", 
+        "n",
         "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
         function()
           vim.cmd.RustLsp({'hover', 'actions'})

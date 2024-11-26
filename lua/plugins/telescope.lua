@@ -50,6 +50,12 @@ return {
         oldfiles = {
           cwd_only = true,
         },
+        lsp_references = {
+          path_display = {
+            -- shorten = 2
+            "tail"
+          }
+        },
         buffers = {
           mappings = {
             n = {
@@ -60,7 +66,10 @@ return {
             } -- i
           },
         },
+
       },
+
+
       extensions = {
         ["ui-select"] = {
           require("telescope.themes").get_dropdown {
@@ -82,6 +91,6 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
     vim.keymap.set('n', '<leader>fe', builtin.oldfiles, { desc = 'Telescope oldfiles' })
     vim.keymap.set('n', '<leader>fc', builtin.git_status, { desc = 'Telescope git status' })
-    vim.keymap.set('n', '<leader>fr', builtin.git_branches, { desc = 'Telescope git branches' })
+    vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Telescope resume' })
   end,
 }
