@@ -5,6 +5,14 @@ return {
   config = function ()
     require('auto-session').setup {
 
+      session_lens = {
+        mappings = {
+          delete_session = { "n", "<C-D>" },
+          alternate_session = { "n", "<C-S>" },
+          copy_session = { "n", "<C-Y>" },
+        },
+      },
+
       pre_save_cmds = {
         -- "tabdo NvimTreeClose",
       },

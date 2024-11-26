@@ -92,5 +92,6 @@ return {
     vim.keymap.set('n', '<leader>fe', builtin.oldfiles, { desc = 'Telescope oldfiles' })
     vim.keymap.set('n', '<leader>fc', builtin.git_status, { desc = 'Telescope git status' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Telescope resume' })
+    vim.keymap.set('n', '<leader>fp', '<Cmd>SessionSearch<CR>', { desc = 'Telescope sessions search' })
   end,
 }
