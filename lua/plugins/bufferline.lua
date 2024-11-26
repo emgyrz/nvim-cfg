@@ -18,8 +18,8 @@ return {
       }
     }
 
-    vim.keymap.set('n', ']b', '<Cmd>BufferLineCycleNext<CR>', kopts('switch to the next buffer'))
-    vim.keymap.set('n', '[b', '<Cmd>BufferLineCyclePrev<CR>', kopts('switch to the prev buffer'))
+    -- vim.keymap.set('n', ']b', '<Cmd>BufferLineCycleNext<CR>', kopts('switch to the next buffer'))
+    -- vim.keymap.set('n', '[b', '<Cmd>BufferLineCyclePrev<CR>', kopts('switch to the prev buffer'))
 
     vim.api.nvim_set_keymap('n', '<leader>bc', '<Cmd>BufferLineCloseOthers<CR>', kopts("close other buffers"))
     vim.api.nvim_set_keymap('n', '<leader>br', '<Cmd>BufferLineCloseRight<CR>', kopts("close right buffers"))
