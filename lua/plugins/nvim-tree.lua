@@ -25,7 +25,9 @@ return {
   version = "*",
 
   -- because of auto-session
-  lazy = true,
+  -- lazy = true,
+
+  lazy = false,
 
   dependencies = {
     "nvim-tree/nvim-web-devicons",

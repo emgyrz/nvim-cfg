@@ -6,6 +6,8 @@ vim.api.nvim_set_keymap('n', '<leader>ao', 'o<Esc>', kopts("add empty line after
 vim.api.nvim_set_keymap('n', '<leader>aO', 'O<Esc>', kopts("add empty line before current"))
 vim.api.nvim_set_keymap('n', '<leader>a;', 'm6g_a;<Esc>`6', kopts("add a semicolon to the end of line"))
 vim.api.nvim_set_keymap('n', '<leader>a,', 'm6g_a,<Esc>`6', kopts("add a comma to the end of line"))
+vim.api.nvim_set_keymap('n', '<leader>a ', 'm6g_a <Esc>`6', kopts("add a comma to the end of line"))
+vim.api.nvim_set_keymap('n', '<leader>as', 'a <Esc>', kopts("add a comma to the end of line"))
 
 
 -- vim.keymap.set('n', ']t', '<Cmd>tabnext<CR>', kopts("switch to the next tab"))
@@ -36,5 +38,5 @@ local function close_buff()
 end
 
 
-vim.keymap.set('n', '<leader>fx', close_buff, kopts("wtite, close buffer and open previous"))
+vim.keymap.set('n', '<leader>bb', close_buff, kopts("wtite, close buffer and open previous"))
 
