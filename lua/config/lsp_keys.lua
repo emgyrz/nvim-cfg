@@ -9,7 +9,7 @@ return function(bufnr)
 
   vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', kopts("Jump to declaration", bufnr))
 
-  vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', kopts("Lists all the implementations for the symbol under the cursor", bufnr))
+  vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', kopts("Lists all the implementations for the symbol under the cursor", bufnr))
 
   vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', kopts("Jumps to the definition of the type symbol", bufnr))
 
@@ -18,6 +18,8 @@ return function(bufnr)
   vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', kopts("Displays a function's signature information", bufnr))
 
   vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', kopts("Renames all references to the symbol under the cursor", bufnr))
+
+  vim.keymap.set('n', '<F3>', '<cmd>lua vim.lsp.buf.format()<cr>', kopts("Format current buffer", bufnr))
 
   vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', kopts("Selects a code action available at the current cursor position", bufnr))
 

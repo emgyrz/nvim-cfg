@@ -115,6 +115,11 @@ M.config = function()
     },
   }
 
+  require'lspconfig'.eslint.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+
   require'lspconfig'.emmet_ls.setup{
     capabilities = capabilities,
     on_attach = on_attach,
@@ -130,6 +135,11 @@ M.config = function()
         }
       }
     }
+  }
+
+  require'lspconfig'.clangd.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
   }
 
 
