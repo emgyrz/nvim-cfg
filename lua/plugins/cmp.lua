@@ -104,23 +104,30 @@ M.config = function()
   }
 
 
-
-  require'lspconfig'.ts_ls.setup {
+  require'lspconfig'.emmet_ls.setup{
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-      completions = {
-        -- completeFunctionCalls = true,
+    init_options = {
+      html = {
+        options = {
+          ["bem.enabled"] = true,
+        },
       },
     },
   }
 
-  require'lspconfig'.eslint.setup{
+
+  require'lspconfig'.ts_ls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
+    -- settings = {
+    --   completions = {
+    --     -- completeFunctionCalls = true,
+    --   },
+    -- },
   }
 
-  require'lspconfig'.emmet_ls.setup{
+  require'lspconfig'.eslint.setup{
     capabilities = capabilities,
     on_attach = on_attach,
   }

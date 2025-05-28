@@ -30,6 +30,17 @@ return {
               local text = vim.fn.getreg('"')
               current_picker:set_prompt(text, false)
             end,
+            ["<C-y>"] = function()
+              local entry = require("telescope.actions.state").get_selected_entry()
+              local cb_opts = vim.opt.clipboard:get()
+              if vim.tbl_contains(cb_opts, "unnamed") then vim.fn.setreg("*", entry.path) end
+                vim.print(entry.path)
+                vim.print(entry)
+              if vim.tbl_contains(cb_opts, "unnamedplus") then
+                vim.fn.setreg("+", entry.path)
+              end
+              vim.fn.setreg("", entry.path)
+            end,
           },
         },
 
